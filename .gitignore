@@ -1,2 +1,9 @@
+.ssh/
+.terraform/
+
 .DS_Store
 .DS_Store?
+notes.md
+debug.log
+*.tfstate*
+service_principal.txt
