@@ -3,6 +3,13 @@
 ## Introduction
 This project deploys a scalable web server on the Azure cloud platfrom using Terraform and Packer.
 
+The infrastructure can be configured via the vars.tf file. The file can be modified using the editor of your choice but the instructions will use **vi**.
+
+**Note**
+The vi text editor has 2 modes (command & insert). When vi is initially opened, it opens in command mode. In order to change a file, you must be in insert mode.
+To change to insert mode, simply press the `i` key and make necessary changes. Once the changes are complete, press `Esc` to return to command mode, and finally type `:wq` to save any changes.
+An excellent vi introduction from RedHat can be found [here](https://www.redhat.com/sysadmin/introduction-vi-editor)
+
 ## Getting Started
 1. Clone this repository.
 2. Ensure the required dependencies are satisfied.
@@ -22,13 +29,20 @@ This project deploys a scalable web server on the Azure cloud platfrom using Ter
     ```az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"```
 * Query your Azure Subscription ID:
 
-    ``` az account show --query "{ subscription_id: id }"```
-* Using your preferred test editor, modify the **servery.json** file with the output values from the previous two commands.
+    ```az account show --query "{ subscription_id: id }"```
+* Using your preferred text editor, modify the **server.json** file with the output values from the previous two commands.
+    ```$ vi server.json``` and type ```i``` to enter insert mode.
     * **az ad sp: client_id** => **server.json: client_id** 
     * **az ad sp: client_secret** => **sever.json: client_secret**
     * **az ad sp: tenant_id** => **server.json: tenant_id**
     * **az account show: subscription_id** => **server.json: subscription_id**
+    Once complete type ```:wq``` to save the changes.
+
 * Using your preferred text editor, change the values in **vars.tf** specific to your project.
+    ```$ vi server.json``` and type ```i``` to enter insert mode.
+    * Apply your configuration changes.
+    Once complete type ```:wq``` to save the changes.
+
 * Decide on a prefix to use for the project (ie. 'udacity-devops').
 * Run ```packer build -var 'prefix=udacity-devops' server.json``` to create an image of the VMs used in the scale set.
 * Run ```terraform init``` to initailize terraform.
