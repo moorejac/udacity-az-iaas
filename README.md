@@ -3,12 +3,12 @@
 ## Introduction
 This project deploys a scalable web server on the Azure cloud platfrom using Terraform and Packer.
 
-The infrastructure can be configured via the vars.tf file. The file can be modified using the editor of your choice but the instructions will use **vi**.
+The infrastructure can be configured via the **vars.tf file**, which can be modified using the editor of your choice (instructions will use **vi**).
 
-**Note**
-The vi text editor has 2 modes (command & insert). When vi is initially opened, it opens in command mode. In order to change a file, you must be in insert mode.
-To change to insert mode, simply press the `i` key and make necessary changes. Once the changes are complete, press `Esc` to return to command mode, and finally type `:wq` to save any changes.
-An excellent vi introduction from RedHat can be found [here](https://www.redhat.com/sysadmin/introduction-vi-editor)
+**Note:**
+The vi text editor has 2 modes (_command_ & _insert_). When vi is initially opened, it opens in _command mode_. In order to change a file, you must be in _insert mode_.
+To enter _insert mode_, simply press the `i` key and make necessary changes. Once the changes are complete, press `Esc` to return to _command mode_, and finally type `:wq` to save any changes.
+An excellent vi introduction from RedHat can be found [here](https://www.redhat.com/sysadmin/introduction-vi-editor).
 
 ## Getting Started
 1. Clone this repository.
@@ -31,17 +31,17 @@ An excellent vi introduction from RedHat can be found [here](https://www.redhat.
 
     ```az account show --query "{ subscription_id: id }"```
 * Using your preferred text editor, modify the **server.json** file with the output values from the previous two commands.
-    ```$ vi server.json``` and type ```i``` to enter insert mode.
-    * **az ad sp: client_id** => **server.json: client_id** 
-    * **az ad sp: client_secret** => **sever.json: client_secret**
-    * **az ad sp: tenant_id** => **server.json: tenant_id**
-    * **az account show: subscription_id** => **server.json: subscription_id**
-    Once complete type ```:wq``` to save the changes.
+    * ```$ vi server.json``` and type ```i``` to enter insert mode.  Apply the following changes:
+        * **az ad sp: client_id** => **server.json: client_id** 
+        * **az ad sp: client_secret** => **sever.json: client_secret**
+        * **az ad sp: tenant_id** => **server.json: tenant_id**
+        * **az account show: subscription_id** => **server.json: subscription_id**
+    * Once complete type ```:wq``` to save the changes.
 
 * Using your preferred text editor, change the values in **vars.tf** specific to your project.
-    ```$ vi server.json``` and type ```i``` to enter insert mode.
-    * Apply your configuration changes.
-    Once complete type ```:wq``` to save the changes.
+    * ```$ vi server.json``` and type ```i``` to enter insert mode.
+        * Apply your configuration changes.
+    * Once complete type ```:wq``` to save the changes.
 
 * Decide on a prefix to use for the project (ie. 'udacity-devops').
 * Run ```packer build -var 'prefix=udacity-devops' server.json``` to create an image of the VMs used in the scale set.
