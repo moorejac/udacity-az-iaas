@@ -1,3 +1,3 @@
-output "vmss_public_ip" {
-    value = azurerm_public_ip.vmss.fqdn
+output "cluster_public_ip" {
+    value = azurerm_public_ip.cluster.fqdn
 }
